@@ -12,7 +12,7 @@ using System.Runtime.Versioning;
 [assembly: AssemblyTitle("DeveloperSharp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("xDreamms")]
 [assembly: AssemblyProduct("DeveloperSharp")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

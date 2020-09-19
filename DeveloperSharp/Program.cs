@@ -75,7 +75,7 @@ namespace DeveloperSharp
 			if (!sender.IsMe)
 			{
 				string[] getSpell = { "Hero Name: " + sender.CharacterName, "Spell Name: " + args.SData.Name };
-				System.IO.File.WriteAllLines(@"C:\SpellData.txt", getSpell);
+				System.IO.File.WriteAllLines(@"C:\Users\Zed\Documents\SpellData.txt", getSpell);
 			}
 			else
 			{
@@ -129,14 +129,14 @@ namespace DeveloperSharp
 			if (sender.IsMe)
 			{
 				string[] mybuff = { "Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name };
-				System.IO.File.WriteAllLines(@"C:\MyBuff.txt", mybuff);
+				System.IO.File.WriteAllLines(@"C:\Users\Zed\Documents\MyBuff.txt", mybuff);
 				Program.MyBuffName = "My Buff Name: " + args.Buff.Name;
 				Program.MyBuffCount = "My Buff Count: " + args.Buff.Count;
 				Program.MyBuffType = "My Buff Type: " + args.Buff.Type;
 				return;
 			}
 			string[] enemybuff = { "Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name };
-			System.IO.File.WriteAllLines(@"C:\EnemyBuff.txt", enemybuff);
+			System.IO.File.WriteAllLines(@"C:\Users\Zed\Documents\EnemyBuff.txt", enemybuff);
 			Program.EnemyBuffName = "Enemy Buff Name: " + args.Buff.Name;
 			Program.EnemyBuffCount = "Enemy Buff Count: " + args.Buff.Count;
 			Program.EnemyBuffType = "Enemy Buff Type: " + args.Buff.Type;

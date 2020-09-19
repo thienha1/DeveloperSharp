@@ -24,9 +24,9 @@ namespace DeveloperSharp
 
 		private static void GameEventOnOnGameLoad()
 		{
-		    var menu = new Menu("xDreammsDeveloperSharp", "xDreamms DeveloperSharp",true);
-		    menu.Attach();
-            GameObject.OnCreate += Program.GameObjectOnOnCreate;
+			var menu = new Menu("xDreammsDeveloperSharp", "xDreamms DeveloperSharp", true);
+			menu.Attach();
+			GameObject.OnCreate += Program.GameObjectOnOnCreate;
 			GameObject.OnDelete += Program.GameObjectOnOnDelete;
 			GameObject.OnMissileCreate += Program.GameObjectOnOnMissileCreate;
 			AIBaseClient.OnBuffGain += Program.AiHeroClientOnOnBuffGain;
@@ -74,19 +74,25 @@ namespace DeveloperSharp
 		{
 			if (!sender.IsMe)
 			{
-				return;
+				string[] getSpell = { "Hero Name: " + sender.CharacterName, "Spell Name: " + args.SData.Name };
+				System.IO.File.WriteAllLines(@"C:\SpellData.txt", getSpell);
 			}
-			Program.Slot = "SpellSlot: " + args.Slot;
-			Program.CastTime = "CastTime: " + args.CastTime;
-			Program.Time = "Tİme: " + args.Time;
-			Program.TotalTime = "Total Time: " + args.TotalTime;
-			Program.CastRadius = "Cast Radius: " + args.SData.CastRadius;
-			Program.CastRange = "Cast Range:  " + args.SData.CastRange;
-			Program.LineWidth = "Line Width : " + args.SData.LineWidth;
-			Program.LineDragLength = "Line Drag Length: " + args.SData.LineDragLength;
-			Program.MissileSpeed = "Missile Speed:  " + args.SData.MissileSpeed;
-			Program.Name = "Name : " + args.SData.Name;
-			Program.CastType = "Cast Type:  " + args.SData.CastType;
+			else
+			{
+				Program.Slot = "SpellSlot: " + args.Slot;
+				Program.CastTime = "CastTime: " + args.CastTime;
+				Program.Time = "Tİme: " + args.Time;
+				Program.TotalTime = "Total Time: " + args.TotalTime;
+				Program.CastRadius = "Cast Radius: " + args.SData.CastRadius;
+				Program.CastRange = "Cast Range:  " + args.SData.CastRange;
+				Program.LineWidth = "Line Width : " + args.SData.LineWidth;
+				Program.LineDragLength = "Line Drag Length: " + args.SData.LineDragLength;
+				Program.MissileSpeed = "Missile Speed:  " + args.SData.MissileSpeed;
+				Program.Name = "Name : " + args.SData.Name;
+				Program.CastType = "Cast Type:  " + args.SData.CastType;
+				Program.CastConeAngle = "Cast Cone Angle: " + args.SData.CastConeAngle;
+				Program.CastConeDistance = "Cast Cone Distance: " + args.SData.CastConeDistance;
+			}
 		}
 
 		private static void AiHeroClientOnOnMissileCreate(GameObject sender, EventArgs args)
@@ -122,11 +128,15 @@ namespace DeveloperSharp
 			}
 			if (sender.IsMe)
 			{
+				string[] mybuff = { "Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name };
+				System.IO.File.WriteAllLines(@"C:\MyBuff.txt", mybuff);
 				Program.MyBuffName = "My Buff Name: " + args.Buff.Name;
 				Program.MyBuffCount = "My Buff Count: " + args.Buff.Count;
 				Program.MyBuffType = "My Buff Type: " + args.Buff.Type;
 				return;
 			}
+			string[] enemybuff = { "Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name };
+			System.IO.File.WriteAllLines(@"C:\EnemyBuff.txt", enemybuff);
 			Program.EnemyBuffName = "Enemy Buff Name: " + args.Buff.Name;
 			Program.EnemyBuffCount = "Enemy Buff Count: " + args.Buff.Count;
 			Program.EnemyBuffType = "Enemy Buff Type: " + args.Buff.Type;
@@ -145,9 +155,9 @@ namespace DeveloperSharp
 		private static void DrawingOnOnDraw(EventArgs args)
 		{
 			Drawing.DrawText(1000, 205f, Color.White, "OnBuffGain");
-		    Drawing.DrawText(1000, 215f, Color.White, "=====================================");
+			Drawing.DrawText(1000, 215f, Color.White, "=====================================");
 
-            if (!string.IsNullOrWhiteSpace(Program.MyBuffName))
+			if (!string.IsNullOrWhiteSpace(Program.MyBuffName))
 			{
 				Drawing.DrawText(1000, 235, Color.White, Program.MyBuffName);
 			}
@@ -172,8 +182,8 @@ namespace DeveloperSharp
 				Drawing.DrawText(1000, 320, Color.White, Program.EnemyBuffType);
 			}
 			Drawing.DrawText(1000, 340, Color.White, "OnProcessSpellCast");
-		    Drawing.DrawText(1000, 350, Color.White, "=====================================");
-            if (!string.IsNullOrWhiteSpace(Program.Slot))
+			Drawing.DrawText(1000, 350, Color.White, "=====================================");
+			if (!string.IsNullOrWhiteSpace(Program.Slot))
 			{
 				Drawing.DrawText(1000, 365, Color.White, Program.Slot);
 			}
@@ -217,9 +227,17 @@ namespace DeveloperSharp
 			{
 				Drawing.DrawText(1000, 515, Color.White, Program.CastType);
 			}
+			if (!string.IsNullOrWhiteSpace(Program.EnemyBuffType))
+			{
+				Drawing.DrawText(1000, 530, Color.White, Program.CastConeAngle);
+			}
+			if (!string.IsNullOrWhiteSpace(Program.EnemyBuffType))
+			{
+				Drawing.DrawText(1000, 545, Color.White, Program.CastConeDistance);
+			}
 			Drawing.DrawText(1000, 535, Color.White, "OnMissileCreate");
-		    Drawing.DrawText(1000, 545, Color.White, "=====================================");
-            if (!string.IsNullOrWhiteSpace(Program.MissileName))
+			Drawing.DrawText(1000, 545, Color.White, "=====================================");
+			if (!string.IsNullOrWhiteSpace(Program.MissileName))
 			{
 				Drawing.DrawText(1000, 560, Color.White, Program.MissileName);
 			}
@@ -240,9 +258,9 @@ namespace DeveloperSharp
 				Drawing.DrawText(1000, 620, Color.White, Program.MissileType);
 			}
 			Drawing.DrawText(1000, 640, Color.White, "OnDoCast");
-		    Drawing.DrawText(1000, 650, Color.White, "=====================================");
+			Drawing.DrawText(1000, 650, Color.White, "=====================================");
 
-            if (!string.IsNullOrWhiteSpace(Program.OnDoCastSpellName))
+			if (!string.IsNullOrWhiteSpace(Program.OnDoCastSpellName))
 			{
 				Drawing.DrawText(1000, 665, Color.White, Program.OnDoCastSpellName);
 			}
@@ -267,9 +285,9 @@ namespace DeveloperSharp
 				Drawing.DrawText(1000, 740, Color.White, Program.OnDoCastWidth);
 			}
 			Drawing.DrawText(1000, 760, Color.White, "MinionCreate");
-		    Drawing.DrawText(1000, 770, Color.White, "=====================================");
+			Drawing.DrawText(1000, 770, Color.White, "=====================================");
 
-            if (!string.IsNullOrWhiteSpace(Program.MinionName))
+			if (!string.IsNullOrWhiteSpace(Program.MinionName))
 			{
 				Drawing.DrawText(1000, 790, Color.White, Program.MinionName);
 			}
@@ -282,9 +300,9 @@ namespace DeveloperSharp
 				Drawing.DrawText(1000, 820, Color.White, Program.MinionPosition);
 			}
 			Drawing.DrawText(1300, 205f, Color.White, "GameObjectOnCreate");
-		    Drawing.DrawText(1300, 215f, Color.White, "=====================================");
+			Drawing.DrawText(1300, 215f, Color.White, "=====================================");
 
-            if (!string.IsNullOrWhiteSpace(Program.OnCreateObjectName))
+			if (!string.IsNullOrWhiteSpace(Program.OnCreateObjectName))
 			{
 				Drawing.DrawText(1300, 235, Color.White, Program.OnCreateObjectName);
 			}
@@ -301,9 +319,9 @@ namespace DeveloperSharp
 				Drawing.DrawText(1300, 280, Color.White, Program.OnCreateObjectPosition);
 			}
 			Drawing.DrawText(1300, 300, Color.White, "GameObjectOnDelete");
-		    Drawing.DrawText(1300, 310, Color.White, "=====================================");
+			Drawing.DrawText(1300, 310, Color.White, "=====================================");
 
-            if (!string.IsNullOrWhiteSpace(Program.OnDeleteObjectName))
+			if (!string.IsNullOrWhiteSpace(Program.OnDeleteObjectName))
 			{
 				Drawing.DrawText(1300, 330, Color.White, Program.OnDeleteObjectName);
 			}
@@ -320,9 +338,9 @@ namespace DeveloperSharp
 				Drawing.DrawText(1300, 375, Color.White, Program.OnDeleteObjectPosition);
 			}
 			Drawing.DrawText(1300, 395, Color.White, "GameObjectOnMissileCreate");
-		    Drawing.DrawText(1300, 405, Color.White, "=====================================");
+			Drawing.DrawText(1300, 405, Color.White, "=====================================");
 
-            if (!string.IsNullOrWhiteSpace(Program.OnOnMissileCreateObjectName))
+			if (!string.IsNullOrWhiteSpace(Program.OnOnMissileCreateObjectName))
 			{
 				Drawing.DrawText(1300, 425, Color.White, Program.OnOnMissileCreateObjectName);
 			}
@@ -393,7 +411,8 @@ namespace DeveloperSharp
 		private static string Name;
 
 		private static string CastType;
-
+		private static string CastConeAngle;
+		private static string CastConeDistance;
 		private static string MissileName;
 
 		private static string MissilePosition;

@@ -76,7 +76,7 @@ namespace DeveloperSharp
 			if (!sender.IsMe)
 			{
 				string[] getSpell = { "Hero Name: " + sender.CharacterName, "Spell Name: " + args.SData.Name };
-				Logging.Write(LogLevel.Info, null, getSpell, true);
+				Console.WriteLine(getSpell);
 			}
 			else
 			{
@@ -130,14 +130,14 @@ namespace DeveloperSharp
 			if (sender.IsMe)
 			{
 				string[] mybuff = { "Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name };
-				Logging.Write(LogLevel.Info, null, mybuff, true);
+				Console.WriteLine(mybuff);
 				Program.MyBuffName = "My Buff Name: " + args.Buff.Name;
 				Program.MyBuffCount = "My Buff Count: " + args.Buff.Count;
 				Program.MyBuffType = "My Buff Type: " + args.Buff.Type;
 				return;
 			}
 			string[] enemybuff = { "Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name };
-			Logging.Write(LogLevel.Info, null, enemybuff, true);
+			Console.WriteLine(enemybuff);
 			Program.EnemyBuffName = "Enemy Buff Name: " + args.Buff.Name;
 			Program.EnemyBuffCount = "Enemy Buff Count: " + args.Buff.Count;
 			Program.EnemyBuffType = "Enemy Buff Type: " + args.Buff.Type;

@@ -137,7 +137,7 @@ namespace DeveloperSharp
 				return;
 			}
 			string[] enemybuff = { "Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name };
-			System.IO.File.WriteAllLines(@"C:\Users\Zed\Documents\EnemyBuff.txt", enemybuff);
+			Logging.Write(LogLevel.Info, null, enemybuff, true);
 			Program.EnemyBuffName = "Enemy Buff Name: " + args.Buff.Name;
 			Program.EnemyBuffCount = "Enemy Buff Count: " + args.Buff.Count;
 			Program.EnemyBuffType = "Enemy Buff Type: " + args.Buff.Type;

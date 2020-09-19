@@ -2,6 +2,7 @@
 using EnsoulSharp;
 using EnsoulSharp.SDK;
 using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.Utils;
 using SharpDX;
 using Color = System.Drawing.Color;
 
@@ -75,7 +76,7 @@ namespace DeveloperSharp
 			if (!sender.IsMe)
 			{
 				string[] getSpell = { "Hero Name: " + sender.CharacterName, "Spell Name: " + args.SData.Name };
-				System.IO.File.WriteAllLines(@"C:\Users\Zed\Documents\SpellData.txt", getSpell);
+				Logging.Write(LogLevel.Info, null, getSpell, true);
 			}
 			else
 			{
@@ -129,7 +130,7 @@ namespace DeveloperSharp
 			if (sender.IsMe)
 			{
 				string[] mybuff = { "Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name };
-				System.IO.File.WriteAllLines(@"C:\Users\Zed\Documents\MyBuff.txt", mybuff);
+				Logging.Write(LogLevel.Info, null, mybuff, true);
 				Program.MyBuffName = "My Buff Name: " + args.Buff.Name;
 				Program.MyBuffCount = "My Buff Count: " + args.Buff.Count;
 				Program.MyBuffType = "My Buff Type: " + args.Buff.Type;

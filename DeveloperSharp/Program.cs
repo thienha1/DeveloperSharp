@@ -75,8 +75,7 @@ namespace DeveloperSharp
 		{
 			if (!sender.IsMe)
 			{
-				string[] getSpell = { "Hero Name: " + sender.CharacterName, "Spell Name: " + args.SData.Name };
-				Console.WriteLine(getSpell);
+				Console.WriteLine("Hero Name: " + sender.CharacterName + ", Spell Name: " + args.SData.Name);
 			}
 			else
 			{
@@ -129,15 +128,13 @@ namespace DeveloperSharp
 			}
 			if (sender.IsMe)
 			{
-				string[] mybuff = { "Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name };
-				Console.WriteLine(mybuff);
+				Console.WriteLine("Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name);
 				Program.MyBuffName = "My Buff Name: " + args.Buff.Name;
 				Program.MyBuffCount = "My Buff Count: " + args.Buff.Count;
 				Program.MyBuffType = "My Buff Type: " + args.Buff.Type;
 				return;
 			}
-			string[] enemybuff = { "Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name };
-			Console.WriteLine(enemybuff);
+			Console.WriteLine("Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name);
 			Program.EnemyBuffName = "Enemy Buff Name: " + args.Buff.Name;
 			Program.EnemyBuffCount = "Enemy Buff Count: " + args.Buff.Count;
 			Program.EnemyBuffType = "Enemy Buff Type: " + args.Buff.Type;
@@ -236,69 +233,69 @@ namespace DeveloperSharp
 			{
 				Drawing.DrawText(1000, 545, Color.White, Program.CastConeDistance);
 			}
-			Drawing.DrawText(1000, 535, Color.White, "OnMissileCreate");
-			Drawing.DrawText(1000, 545, Color.White, "=====================================");
+			Drawing.DrawText(1000, 565, Color.White, "OnMissileCreate");
+			Drawing.DrawText(1000, 575, Color.White, "=====================================");
 			if (!string.IsNullOrWhiteSpace(Program.MissileName))
 			{
-				Drawing.DrawText(1000, 560, Color.White, Program.MissileName);
+				Drawing.DrawText(1000, 580, Color.White, Program.MissileName);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.MissilePosition))
 			{
-				Drawing.DrawText(1000, 575, Color.White, Program.MissilePosition);
+				Drawing.DrawText(1000, 585, Color.White, Program.MissilePosition);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.MissileBoundingRadius))
 			{
-				Drawing.DrawText(1000, 590, Color.White, Program.MissileBoundingRadius);
+				Drawing.DrawText(1000, 600, Color.White, Program.MissileBoundingRadius);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.MissileNetworkID))
 			{
-				Drawing.DrawText(1000, 605, Color.White, Program.MissileNetworkID);
+				Drawing.DrawText(1000, 615, Color.White, Program.MissileNetworkID);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.MissileType))
 			{
-				Drawing.DrawText(1000, 620, Color.White, Program.MissileType);
+				Drawing.DrawText(1000, 630, Color.White, Program.MissileType);
 			}
-			Drawing.DrawText(1000, 640, Color.White, "OnDoCast");
-			Drawing.DrawText(1000, 650, Color.White, "=====================================");
+			Drawing.DrawText(1000, 650, Color.White, "OnDoCast");
+			Drawing.DrawText(1000, 660, Color.White, "=====================================");
 
 			if (!string.IsNullOrWhiteSpace(Program.OnDoCastSpellName))
 			{
-				Drawing.DrawText(1000, 665, Color.White, Program.OnDoCastSpellName);
+				Drawing.DrawText(1000, 675, Color.White, Program.OnDoCastSpellName);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.OnDoCastSpellSpeed))
 			{
-				Drawing.DrawText(1000, 680, Color.White, Program.OnDoCastSpellSpeed);
+				Drawing.DrawText(1000, 690, Color.White, Program.OnDoCastSpellSpeed);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.OnDoCastSpellCastRadius))
 			{
-				Drawing.DrawText(1000, 695, Color.White, Program.OnDoCastSpellCastRadius);
+				Drawing.DrawText(1000, 705, Color.White, Program.OnDoCastSpellCastRadius);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.OnDoCastCastRange))
 			{
-				Drawing.DrawText(1000, 710, Color.White, Program.OnDoCastCastRange);
+				Drawing.DrawText(1000, 720, Color.White, Program.OnDoCastCastRange);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.OnDoCastTime))
 			{
-				Drawing.DrawText(1000, 725, Color.White, Program.OnDoCastTime);
+				Drawing.DrawText(1000, 735, Color.White, Program.OnDoCastTime);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.OnDoCastWidth))
 			{
-				Drawing.DrawText(1000, 740, Color.White, Program.OnDoCastWidth);
+				Drawing.DrawText(1000, 750, Color.White, Program.OnDoCastWidth);
 			}
-			Drawing.DrawText(1000, 760, Color.White, "MinionCreate");
-			Drawing.DrawText(1000, 770, Color.White, "=====================================");
+			Drawing.DrawText(1000, 770, Color.White, "MinionCreate");
+			Drawing.DrawText(1000, 780, Color.White, "=====================================");
 
 			if (!string.IsNullOrWhiteSpace(Program.MinionName))
 			{
-				Drawing.DrawText(1000, 790, Color.White, Program.MinionName);
+				Drawing.DrawText(1000, 800, Color.White, Program.MinionName);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.MinionType))
 			{
-				Drawing.DrawText(1000, 805, Color.White, Program.MinionType);
+				Drawing.DrawText(1000, 815, Color.White, Program.MinionType);
 			}
 			if (!string.IsNullOrWhiteSpace(Program.MinionPosition))
 			{
-				Drawing.DrawText(1000, 820, Color.White, Program.MinionPosition);
+				Drawing.DrawText(1000, 830, Color.White, Program.MinionPosition);
 			}
 			Drawing.DrawText(1300, 205f, Color.White, "GameObjectOnCreate");
 			Drawing.DrawText(1300, 215f, Color.White, "=====================================");

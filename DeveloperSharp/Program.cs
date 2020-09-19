@@ -75,7 +75,7 @@ namespace DeveloperSharp
 		{
 			if (!sender.IsMe)
 			{
-				Console.WriteLine("Hero Name: " + sender.CharacterName + ", Spell Name: " + args.SData.Name);
+				Console.WriteLine("Hero Name: " + sender.CharacterName.ToString() + ", Spell Name: " + args.SData.Name.ToString());
 			}
 			else
 			{
@@ -128,13 +128,13 @@ namespace DeveloperSharp
 			}
 			if (sender.IsMe)
 			{
-				Console.WriteLine("Hero Name: " + sender.CharacterName, "My Buff Name: " + args.Buff.Name);
+				Console.WriteLine("Hero Name: " + sender.CharacterName.ToString(), "My Buff Name: " + args.Buff.Name.ToString());
 				Program.MyBuffName = "My Buff Name: " + args.Buff.Name;
 				Program.MyBuffCount = "My Buff Count: " + args.Buff.Count;
 				Program.MyBuffType = "My Buff Type: " + args.Buff.Type;
 				return;
 			}
-			Console.WriteLine("Hero Name: " + sender.CharacterName, "Enemy Buff Name: " + args.Buff.Name);
+			Console.WriteLine("Hero Name: " + sender.CharacterName.ToString(), "Enemy Buff Name: " + args.Buff.Name.ToString());
 			Program.EnemyBuffName = "Enemy Buff Name: " + args.Buff.Name;
 			Program.EnemyBuffCount = "Enemy Buff Count: " + args.Buff.Count;
 			Program.EnemyBuffType = "Enemy Buff Type: " + args.Buff.Type;
@@ -233,8 +233,8 @@ namespace DeveloperSharp
 			{
 				Drawing.DrawText(1000, 545, Color.White, Program.CastConeDistance);
 			}
-			Drawing.DrawText(1000, 565, Color.White, "OnMissileCreate");
-			Drawing.DrawText(1000, 575, Color.White, "=====================================");
+			Drawing.DrawText(1000, 595, Color.White, "OnMissileCreate");
+			Drawing.DrawText(1000, 605, Color.White, "=====================================");
 			if (!string.IsNullOrWhiteSpace(Program.MissileName))
 			{
 				Drawing.DrawText(1000, 580, Color.White, Program.MissileName);
